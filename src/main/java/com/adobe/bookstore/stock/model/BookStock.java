@@ -1,11 +1,11 @@
-package com.adobe.bookstore;
+package com.adobe.bookstore.stock.model;
 
+import com.adobe.bookstore.order.model.entity.BookOrderStock;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "book_stock")
@@ -15,6 +15,9 @@ public class BookStock {
     @Id
     @Column(name = "id", nullable = false)
     private String id;
+
+    @OneToMany(mappedBy = "stock")
+    List<BookOrderStock> orderStock;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -28,6 +31,14 @@ public class BookStock {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<BookOrderStock> getOrderStock() {
+        return orderStock;
+    }
+
+    public void setOrderStock(List<BookOrderStock> orderStock) {
+        this.orderStock = orderStock;
     }
 
     public String getName() {
