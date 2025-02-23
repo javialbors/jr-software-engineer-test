@@ -1,6 +1,7 @@
-package com.adobe.bookstore.stock.model;
+package com.adobe.bookstore.stock.model.entity;
 
 import com.adobe.bookstore.order.model.entity.BookOrderStock;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import jakarta.persistence.*;
@@ -16,6 +17,12 @@ public class BookStock {
     @Column(name = "id", nullable = false)
     private String id;
 
+    @Version
+    @JsonIgnore
+    @Column(name = "version", nullable = false, columnDefinition = "BIGINT DEFAULT 0")
+    private Long version;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "stock")
     List<BookOrderStock> orderStock;
 
@@ -24,6 +31,14 @@ public class BookStock {
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
+
+    public BookStock() {}
+
+    public BookStock(String id, String name, Integer quantity) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+    }
 
     public String getId() {
         return id;
@@ -55,5 +70,13 @@ public class BookStock {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }

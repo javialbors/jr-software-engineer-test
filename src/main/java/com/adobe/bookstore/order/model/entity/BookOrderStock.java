@@ -1,6 +1,6 @@
 package com.adobe.bookstore.order.model.entity;
 
-import com.adobe.bookstore.stock.model.BookStock;
+import com.adobe.bookstore.stock.model.entity.BookStock;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 

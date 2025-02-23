@@ -1,6 +1,6 @@
 package com.adobe.bookstore.order.model.entity;
 
-import com.adobe.bookstore.stock.model.BookStock;
+import com.adobe.bookstore.stock.model.entity.BookStock;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,6 +15,7 @@ import java.util.List;
 public class BookOrder {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
     private String id;
 
@@ -29,6 +30,7 @@ public class BookOrder {
 
     public BookOrder(String id) {
         this.id = id;
+        this.createdAt = LocalDateTime.now();
     }
 
     public void addStock(BookStock book, Integer quantity) {

@@ -1,7 +1,7 @@
 package com.adobe.bookstore.stock.controller;
 
 import com.adobe.bookstore.stock.service.BookStockService;
-import com.adobe.bookstore.stock.model.BookStock;
+import com.adobe.bookstore.stock.model.entity.BookStock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,6 @@
 package com.adobe.bookstore.order.controller;
 
 import com.adobe.bookstore.order.model.dto.BookOrderDTO;
-import com.adobe.bookstore.order.model.entity.BookOrder;
 import com.adobe.bookstore.order.model.request.BookRequest;
 import com.adobe.bookstore.order.service.BookOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
