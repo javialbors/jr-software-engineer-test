@@ -1,5 +1,29 @@
 # Commerce Services - Technical Interview
 
+## New Order
+
+The application now processes new book orders via an HTTP POST request to the following endpoint: `localhost:8080/orders/new`.
+The request body must be a JSON array where each object contains a book `id` and the `quantity` of units to be ordered.
+
+```
+[
+    {
+        "id": "863b8f96-c254-473b-973f-87c63bb3ca42",
+        "quantity": 1
+    },
+    {
+        "id": "93136a2b-9e9d-4fb4-957b-19444a4ae293",
+        "quantity": 2
+    }
+]
+```
+
+After a successful order, the stock of the ordered books will be updated asynchronously, without blocking the response of the new Unique Order ID to the client.
+
+## Retrieve All Orders
+
+All successful orders can be retrieved via an HTTP GET request to the endpoint `localhost:8080/orders/`. Each order may include multiple books, and the quantity shown for each book corresponds to the number of units ordered.
+
 ### Context
 
 We are an online book store. We have an API that returns our catalog and stock. 
