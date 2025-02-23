@@ -1,5 +1,6 @@
 # Commerce Services - Technical Interview
 
+<br>
 
 ## New Order
 
@@ -21,11 +22,13 @@ The request body must be a JSON array where each object contains a book `id` and
 
 After a successful order, the stock of the ordered books will be updated asynchronously, without blocking the response of the new Unique Order ID to the client.
 
+<br>
 
 ## Retrieve All Orders
 
 All successful orders can be retrieved via an HTTP GET request to the endpoint `localhost:8080/orders/`. Each order may include multiple books, and the quantity shown for each book corresponds to the number of units ordered.
 
+<br>
 
 ### Context
 
